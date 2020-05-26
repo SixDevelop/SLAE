@@ -1,0 +1,12 @@
+/Users/sergey/Documents/GitHub/SLAE/bin/Debug/netcoreapp3.1/SLAE.deps.json
+/Users/sergey/Documents/GitHub/SLAE/bin/Debug/netcoreapp3.1/SLAE.runtimeconfig.json
+/Users/sergey/Documents/GitHub/SLAE/bin/Debug/netcoreapp3.1/SLAE.runtimeconfig.dev.json
+/Users/sergey/Documents/GitHub/SLAE/bin/Debug/netcoreapp3.1/SLAE.dll
+/Users/sergey/Documents/GitHub/SLAE/bin/Debug/netcoreapp3.1/SLAE.pdb
+/Users/sergey/Documents/GitHub/SLAE/obj/Debug/netcoreapp3.1/SLAE.csprojAssemblyReference.cache
+/Users/sergey/Documents/GitHub/SLAE/obj/Debug/netcoreapp3.1/SLAE.csproj.CoreCompileInputs.cache
+/Users/sergey/Documents/GitHub/SLAE/obj/Debug/netcoreapp3.1/SLAE.AssemblyInfoInputs.cache
+/Users/sergey/Documents/GitHub/SLAE/obj/Debug/netcoreapp3.1/SLAE.AssemblyInfo.cs
+/Users/sergey/Documents/GitHub/SLAE/obj/Debug/netcoreapp3.1/SLAE.dll
+/Users/sergey/Documents/GitHub/SLAE/obj/Debug/netcoreapp3.1/SLAE.pdb
+/Users/sergey/Documents/GitHub/SLAE/obj/Debug/netcoreapp3.1/SLAE.genruntimeconfig.cache
