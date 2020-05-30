@@ -189,10 +189,10 @@ namespace SLAE {
             #endregion
             #endregion
 
-            #region For a matrix of any dimension
+            // #region For a matrix of any dimension
 
             
-            // Random rand = new Random();
+            // Random rnd = new Random();
             // int sizeRows = rand.Next(2,10);
             // int sizeCols = rand.Next(2,10);
 
@@ -208,19 +208,19 @@ namespace SLAE {
             // Matrix.Output(arr2,sizeRows,sizeCols);
             // Matrix mat1 = new Matrix(arr2);
 
-            // mat1.LUDecomposition();
+            // mat1.LUDecompose();
             // Console.WriteLine("Matrix L :");
-            // Matrix.Output(mat1.matrixL, mat1.matrixL.GetLength(0), mat1.matrixL.GetLength(1));
+            // Matrix.Output(mat1.matL, mat1.matL.GetLength(0), mat1.matL.GetLength(1));
             // Console.WriteLine("Matrix U :");
-            // Matrix.Output(mat1.matrixU, mat1.matrixU.GetLength(0), mat1.matrixU.GetLength(1));
+            // Matrix.Output(mat1.matU, mat1.matU.GetLength(0), mat1.matU.GetLength(1));
             // Console.WriteLine("L & U product:");
-            // Matrix.Output(Matrix.Multiply(mat1.matrixL, mat1.matrixU, mat1.matrixL.GetLength(0)
-            //                               , mat1.matrixL.GetLength(1), mat1.matrixU.GetLength(1)),
-            //                               mat1.matrixL.GetLength(0), mat1.matrixU.GetLength(1));
+            // Matrix.Output(Matrix.Multiply(mat1.matL, mat1.matU, mat1.matL.GetLength(0)
+            //                               , mat1.matL.GetLength(1), mat1.matU.GetLength(1)),
+            //                               mat1.matL.GetLength(0), mat1.matU.GetLength(1));
             // Console.WriteLine("P,A & Q product:");
-            // Matrix.Output(Matrix.Multiply(Matrix.Multiply(mat1.matrixP, mat1._matrix, mat1.matrixP.GetLength(0)
-            //                                           , mat1.matrixP.GetLength(1), mat1._matrix.GetLength(1))
-            //                                           , mat1.matrixQ, mat1.sizeRows, mat1.matrixQ.GetLength(0), mat1.matrixQ.GetLength(1)), mat1.sizeRows, mat1.sizeCols);
+            // Matrix.Output(Matrix.Multiply(Matrix.Multiply(mat1.matP, mat1._mat, mat1.matP.GetLength(0)
+            //                                           , mat1.matP.GetLength(1), mat1._mat.GetLength(1))
+            //                                           , mat1.matQ, mat1.rowSize, mat1.matQ.GetLength(0), mat1.matQ.GetLength(1)), mat1.rowSize, mat1.colSize);
 
             // Console.WriteLine("Rank of matrix A :");
             // Console.WriteLine(mat1.GetRank());
@@ -231,14 +231,14 @@ namespace SLAE {
             // Console.WriteLine("Vector b : Ax = b :");
             // OutputVec(b3,sizeRows);
 
-            // double[,] sol = mat1.Solution(b3);
+            // double[,] solution = mat1.Solution(b3);
             // Console.WriteLine("Sistem solvation:");
-            // for (int i = 0; i < sol.GetLength(0); i++)
-            //    for (int j = 0; j < sol.GetLength(1); j++)
-            //        Console.WriteLine(sol[i, j]);
+            // for (int i = 0; i < solution.GetLength(0); i++)
+            //    for (int j = 0; j < solution.GetLength(1); j++)
+            //        Console.WriteLine(solution[i, j]);
 
             // Console.ReadLine();
-            #endregion
+            // #endregion
 
         }
     }
