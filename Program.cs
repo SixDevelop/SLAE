@@ -23,6 +23,7 @@ namespace SLAE {
             Random rand = new Random();
             int size = rand.Next(4, 7);
             Console.WriteLine("Size of matrix: {0}", size);
+
             double[,] arr = new double[size, size];
 
             for (int i = 0; i < size; i++)
@@ -32,6 +33,18 @@ namespace SLAE {
                     else
                         arr[i, j] = rand.Next(-49, 49);
                 }
+                
+            // double[,] arr = new double[size, size];
+
+            // for (int i = 0; i < size - 1; i++)
+            //     for (int j = 0; j < size; j++){
+            //         if (i == j)
+            //             arr[i, j] = rand.Next(50, 100);
+            //         else
+            //             arr[i, j] = rand.Next(-49, 49);
+            //     }
+            // for (int j = 0; j < size; j++)
+            // arr[size - 1,j] = arr[size - 2, j];
 
             Console.WriteLine("Matrix A:");
             Matrix.Output(arr, size, size);
@@ -157,11 +170,16 @@ namespace SLAE {
 
             #region methods Jacoby and Seildel 
 
-            Console.WriteLine("Enter initial value (x0):");
+            //Console.WriteLine("Enter initial value (x0):");
             double[] x0 = new double[size];
-            var mX = inputMatrix(1, size);
-            for (int i = 0; i < size; i++)
-                x0[i] = mX[0, i];
+            //var mX = inputMatrix(1, size);
+            // for (int i = 0; i < size; i++)
+            //     x0[i] = mX[0, i];
+            for(int i = 0;i < size;i++)
+                x0[i] = b[i] + rand.Next(-3,3);
+
+            Console.WriteLine("Initial value (x0):");
+            OutputVec(x0,size);
             Console.Out.Write("\n" + "\n");
             double[] copB = new double[size];
             for (int i = 0; i < size; i++)

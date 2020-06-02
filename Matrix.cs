@@ -2,6 +2,7 @@ using System;
 
 namespace SLAE{
     public class Matrix{
+        private Random rnd = new Random();
         public double eps;
         public double[,] _mat;              
         public double[,] matL,matU;      
@@ -325,6 +326,84 @@ namespace SLAE{
         
         public double[,] Solution(double[] b) {
             double[,] resultSolution;
+            if(isSquare){
+                if(!isLU)
+                LUDecompose();
+
+            double[] X = new double[size];
+            double[] Y = new double[size];
+            int fsrNum = size - _rank;
+                if(fsrNum !=0)
+                resultSolution = new double[fsrNum,size];
+                else{
+                resultSolution = new double[1,size];
+                fsrNum = 1;
+                }
+
+
+            b = multiplyVec(matP, b, size);        
+            isSing = true;
+
+            for(int i = 0;i < size;i++)                 
+            {
+                if(b[i] != 0)
+                {
+                    isSing = true;
+                    break;
+                }
+            }
+            for(int i = 0;i < fsrNum;i++)
+            {
+                for(int j = size - 1;j >_rank - 1;j--)
+                        {
+                            X[j] = rnd.Next(0,2) ;
+
+                        }
+                // look for y :
+                // Ly = b
+                for(int j = 0; j < size; j++)                //reverse stroke along the left matrix
+                {
+                    Y[j] = b[j];
+                        for (int k = 0; k < j; k++)
+                            Y[j] -= matL[j,k] * Y[k];
+                }
+                // look for x :
+                // Ux = y
+                for(int j = _rank - 1;j > -1;j--)            //reverse stroke along the right matrix
+                {
+                    X[j] = Y[j] / matU[j,j];
+                    for(int k = j+1;k < size;k++)
+                        X[j] -= matU[j,k] * X[k] / matU[j,j];
+                }
+                X = multiplyVec(matQ,X,size);            //remove the effect of column permutation
+                for(int j = 0;j < size;j++)
+                    resultSolution[i,j] = X[j];
+                bool isSame = true;
+                if(i>0)
+                for(int k = i;k >0; k--)
+                for(int j = 0;j < size;j++)
+                {
+                    if(resultSolution[i,j] != resultSolution[k-1,j])
+                        isSame = false;
+                }
+                
+                if(isSame && i > 0)
+                    i--;
+
+            }
+                // find matrix condition number
+                double vecNorm = 0;
+                double solutionNorm = 0;
+                for(int i = 0;i < b.Length - 1; i++)
+                {
+                    vecNorm += b[i] * b[i];
+                    solutionNorm += X[i] * X[i];
+                }
+                vecNorm = Math.Sqrt(vecNorm);
+                solutionNorm = Math.Sqrt(solutionNorm);
+            }else{
+
+            
             if(!isLU)
                 LUDecompose();
             int minSize;
@@ -375,8 +454,9 @@ namespace SLAE{
                     if(isSame && i > 0)
                         i--;
                 }
-
+            }
             return resultSolution;
+            
         }    
         public void QRDecompose() {
             if(isSquare) {
